@@ -1,10 +1,10 @@
-import os
-import random
+import os 
+import random 
 
 def createNextId(id):
     return str(int(id) + 1)
 
-# returns empty if user file is empty
+# izvada tukšu, ja lietotāja fails ir tukš
 # else returns a list of tuples - (question, answer)
 def checkHistory(userId):
     filepath = userId+".txt"
@@ -16,7 +16,7 @@ def checkHistory(userId):
                 answers = []
                 for i in lines:
                     info = i.split(';')
-                    answers.append((info[0], info[1].split('\n')[0])) # Deletes the useless \n
+                    answers.append((info[0], info[1].split('\n')[0])) # izdzēš \n
             return answers
     else:
         return "Empty"
@@ -29,10 +29,10 @@ def addToHistory(question, answer, userId):
         history.writelines(newanswer)
 
 
-# Returns -1 if username or email is taken. returns 0 on success
+# Izvada -1, ja lietotājvārds vai emails ir aizņemts. Izvada 0, ja pieņemts.
 def createAccount(name, surname, username, email, password):
-    # Account structure:
-    # name, surname, username, email, pass, id
+    # Profila struktūra:
+    # vārds, uzvārds, lietotājvārds, email, parole, id
     # id - numurs DB
     database = open("userDB.txt", 'r')
     lines = database.readlines()
@@ -55,10 +55,10 @@ def createAccount(name, surname, username, email, password):
     ]
     database.writelines(newUser)
     database.close()
-    return lastid  # returns user ID
+    return lastid  # izvada lietptāja ID
 
 
-# returns userID on sucessful login, otherwise False
+# izvada userID, ja pievienošanās ir veiksmīga , ja nav tad izvadās False
 def loginIntoAccount(username, password):
     database = open("userDB.txt", 'r')
     lines = database.readlines()
@@ -67,7 +67,7 @@ def loginIntoAccount(username, password):
         info = i.split(',')
         if info == ['\n']: break
         if info[2] == username and info[4] == password:
-            return info[5]  # returns user ID
+            return info[5]  # izvada lietotāja ID
 
     return False
 

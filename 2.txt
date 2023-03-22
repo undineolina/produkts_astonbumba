@@ -1,0 +1,3 @@
+Vai ara rīt būs labs laiks?; Pajautā vēlāk
+Vai man būs labas atzīmes?; Pajautā vēlāk
+hh; Viss rāda, ka jā

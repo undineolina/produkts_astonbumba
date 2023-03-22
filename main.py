@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 root = Tk()
 root.title("Astoņbumba")
-root.geometry("350x350")
+root.geometry("400x350")
 root.config(bg='#D1D1D1')
 
 def loginScreen():           #Login logs
@@ -62,9 +62,9 @@ def userSpace(userID):
     askQuestion = Button(root, text="Uzdod jautājumu", command= lambda : questionsWindow(userID))
     logout = Button(root, text="Izrakstīties", command=lambda : startup())
 
-    history.grid(row=0, column=0, padx=(120, 10), pady=(100, 10))
-    askQuestion.grid(row=1, column=0, padx=(120, 10), pady=10)
-    logout.grid(row=2, column=0,padx=(120, 10), pady=10)
+    history.grid(row=0, column=0, padx=(140, 10), pady=(100, 10))
+    askQuestion.grid(row=1, column=0, padx=(140, 10), pady=10)
+    logout.grid(row=2, column=0,padx=(140, 10), pady=10)
 
 
 
@@ -103,13 +103,13 @@ def questionsWindow(userID):                   #Jautājumu logs
     questionsEntry = Entry(root)
     answerLabel = Label(root, text="")
     askBtn = Button(root, text="Jautāt!", command= lambda :askedQuestion(questionsEntry, userID, answerLabel))
-    back1 = Button(root, text="Atpakaļ", command=lambda:userSpace())
+    back7 = Button(root, text="Atpakaļ", command=lambda:userSpace(userID))
 
     questionLabel.grid(row=0, column=0, padx=(50, 10), pady=10)
     questionsEntry.grid(row=0, column=1)
     answerLabel.grid(row=1,column=0, columnspan=2, padx=(50, 10), pady=10)
     askBtn.grid(row=2,column=0, columnspan=2, padx=(50, 10), pady=10)
-    back1.grid(row=3, column=0)
+    back7.grid(row=3, column=0)
 
 
 def loginCheck(vards, parole):          #Pārbauda vai ir pareizi ierakstits lietotājvāŗds
@@ -123,7 +123,7 @@ def loginCheck(vards, parole):          #Pārbauda vai ir pareizi ierakstits lie
         userSpace(sucess.rstrip())
 
 
-def registerCheck(vards, uzvards, username, email, password):                      #pārbauda vai tāds lietotājs eksistē
+def registerCheck(vards, uzvards, username, email, password):                      #pārbauda vai tāds lietotājs jau eksistē
     userID = createAccount(vards.get(), uzvards.get(), username.get(), email.get(), password.get())
     x = [vards, uzvards, username, email, password]
     for i in x:
@@ -139,8 +139,8 @@ def startup():
         widgets.destroy()
     pieslegties = Button(root, text="Pieslēdzies", command=loginScreen)
     registreties = Button(root, text="Reģistrējies", command=signUpScreen)
-    pieslegties.grid(row=0, column=0, padx=125, pady=50)
-    registreties.grid(row=1, column=0, padx=125, pady=50)
+    pieslegties.grid(row=0, column=0, padx=150, pady=70)
+    registreties.grid(row=1, column=0, padx=150, pady=10)
 
 startup()
 root.mainloop()

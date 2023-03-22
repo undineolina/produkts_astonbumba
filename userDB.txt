@@ -1,1 +1,3 @@
 undine,olina,olinaund,olina@gmail.com,undine,1
+kristers,balins,kristers,hhh@ffff.com,12345,2
+Jānis,Bērzins,J.Bērzins,janis.ber@gmail.com,janis123,3
